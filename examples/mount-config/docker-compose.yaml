@@ -1,0 +1,9 @@
+# Shows an example where we mount the config from the host machine
+# This is a very common pattern while not great due to the host machine dependency.
+version: '3.8'
+services:
+  squadjs:
+    image: localhost/squadjs-docker:latest
+    volumes:
+      - ./test.log:/logs/SquadGame.log
+      - ./config.json:/app/config.json

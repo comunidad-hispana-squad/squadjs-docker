@@ -1,4 +1,6 @@
-ARG SQUADJS_VERSION="4.1.0"
+ARG SQUADJS_VERSION="4.2.0"
+# This is the version we will tag the image use the same as above unless it's a pre-release.
+ARG SQUADJS_TAG="4.2.0-rc1"
 ARG NODE_VERSION=18
 #ARG YARN_VERSION=1.22 # For doc purposes yarn is already installed.
 
@@ -27,7 +29,7 @@ RUN curl -L -o SquadJS.zip "https://github.com/Team-Silver-Sphere/SquadJS/archiv
 FROM node:${NODE_VERSION}-slim AS prod
 
 LABEL maintainer="Comunidad Hispana de Squad"
-LABEL version="0.1.0"
+LABEL version=${SQUADJS_TAG}
 LABEL description="Production ready docker container for SquadJS"
 
 WORKDIR /app

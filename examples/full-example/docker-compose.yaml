@@ -1,0 +1,28 @@
+# Shows an example with the most common dependencies
+# We chose mounting the config as the more reliable option right now
+version: '3.8'
+services:
+  squadjs:
+    image: localhost/squadjs-docker:latest
+    volumes:
+      - ./config.json:/app/config.json
+      - squadjs-sqlite:/app/database.sqlite
+  
+  # You should check docks on backups https://hub.docker.com/_/mariadb
+  db:
+    image: docker.io/mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: sakura
+    volumes:
+      - squadjs-mariadb:/var/lib/mysql
+
+#  adminer:
+#    image: docker.io/adminer
+#    restart: always
+#    ports:
+#      - 9090:8080
+
+volumes:
+  squadjs-sqlite:
+  squadjs-mariadb:

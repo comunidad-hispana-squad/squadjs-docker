@@ -1,19 +1,35 @@
 {
     "server": {
       "id": 1,
-      "host": "192.168.1.100",
+      "host": "192.168.1.51",
       "queryPort": 27165,
       "rconPort": 21114,
-      "rconPassword": "password",
+      "rconPassword": "sakura",
       "logReaderMode": "tail",
-      "logDir": "/app/test/test.log",
-      "adminLists": []
+      "logDir": "/logs/",
+      "ftp": {
+        "host": "xxx.xxx.xxx.xxx",
+        "port": 21,
+        "user": "FTP Username",
+        "password": "FTP Password"
+      },
+      "sftp": {
+        "host": "xxx.xxx.xxx.xxx",
+        "port": 22,
+        "username": "SFTP Username",
+        "password": "SFTP Password"
+      },
+      "adminLists": [
+        {
+          "type": "",
+          "source": ""
+        }
+      ]
     },
     "connectors": {
       "sqlite": "sqlite:database.sqlite"
     },
     "plugins": [
-      
     ],
     "logger": {
       "verboseness": {
@@ -28,4 +44,4 @@
         "RCON": "redBright"
       }
     }
-  }
+}
